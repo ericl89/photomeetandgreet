@@ -5,6 +5,7 @@ import {Button} from "@/components/ui/button";
 import {Loading} from "@/components/nav/Loading";
 import {useMember} from "@/app/hooks/useMember";
 import MembersTable from "@/components/admin/Members.table";
+import AdminTable from "@/components/admin/Admin.table";
 
 export default function Page() {
     const { loading, user } = useMember();
@@ -25,7 +26,7 @@ export default function Page() {
                                 </CardAction>
                             </CardHeader>
                             <CardContent>
-                                <UpcomingEventsTable/>
+                                <AdminTable/>
                             </CardContent>
                         </Card>
                     </div>
