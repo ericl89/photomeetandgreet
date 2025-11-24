@@ -1,6 +1,6 @@
 # Photography & Model Networking
 
-A modern web app for organizing model/photographer meetups. Attendees (members) authenticate with **email + password**, can **update their profiles** (including flexible **JSONB socials**), and **sign into events**. Admins manage groups, events, and exports with **group‑scoped RBAC**.
+A modern web app for organizing model/photographer meetups. Attendees (members) authenticate with **email + password**, can **update their profiles**, and **sign into events**. Admins manage groups, events, and exports with **group‑scoped RBAC**.
 
 Built with **Next.js (App Router)**, **PostgreSQL**, and **Drizzle ORM**.
 
@@ -290,8 +290,3 @@ Open [http://localhost:3000](http://localhost:3000)
 * 2FA for admins (TOTP).
 * Member self‑service deletion/export of data.
 
----
-
-## License
-
-MIT.
