@@ -1,0 +1,73 @@
+
+table.rounded-corners {
+    text-align: left;
+}
+
+table.rounded-corners th {
+    background: #36304a;
+    color: white;
+    padding: 10px;
+}
+
+table.rounded-corners {
+    /* Change these properties */
+    --border: 0;
+    border-radius: 10px;
+
+    /* Don't change these properties */
+    border-spacing: 0;
+    border-collapse: separate;
+    border: var(--border);
+    overflow: hidden;
+}
+
+table.rounded-corners tbody tr:nth-child(odd) {
+    background-color: #fff;
+    color: #000;
+}
+
+table.rounded-corners tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+table.rounded-corners td {
+    padding: 15px;
+}
+
+table.rounded-corners th:first-child, table.rounded-corners td:first-child {
+    padding-left: 20px;
+}
+
+table.rounded-corners th:first-child, table.rounded-corners td:last-child {
+    padding-right: 20px;
+}
+
+
+/* Apply a border to the right of all but the last column */
+table.rounded-corners th:not(:last-child),
+table.rounded-corners td:not(:last-child) {
+    border-right: var(--border);
+}
+
+/* Apply a border to the bottom of all but the last row */
+table.rounded-corners>thead>tr:not(:last-child)>th,
+table.rounded-corners>thead>tr:not(:last-child)>td,
+table.rounded-corners>tbody>tr:not(:last-child)>th,
+table.rounded-corners>tbody>tr:not(:last-child)>td,
+table.rounded-corners>tfoot>tr:not(:last-child)>th,
+table.rounded-corners>tfoot>tr:not(:last-child)>td,
+table.rounded-corners>tr:not(:last-child)>td,
+table.rounded-corners>tr:not(:last-child)>th,
+table.rounded-corners>thead:not(:last-child),
+table.rounded-corners>tbody:not(:last-child),
+table.rounded-corners>tfoot:not(:last-child) {
+    border-bottom: var(--border);
+}
+
+
+
+
+button:disabled {
+    opacity: 0.5;
+}
