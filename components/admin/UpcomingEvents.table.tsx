@@ -124,7 +124,7 @@ export default function HistoricalEventsTable() {
         const params = new URLSearchParams({
             page: String(pageIndex),
             pageSize: String(pageSize),
-            when: 'past'
+            when: 'future'
         });
         if (sort) params.set("sort", sort);
         if (filters !== "[]") params.set("filters", filters);
