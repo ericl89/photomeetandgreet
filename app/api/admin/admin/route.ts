@@ -1,7 +1,7 @@
 import {type NextRequest, NextResponse} from "next/server";
-import {members} from "@/db/schema";
+import {events, members} from "@/db/schema";
 import {drizzle} from "drizzle-orm/node-postgres";
-import {asc, count, eq} from "drizzle-orm";
+import {asc, count, gt, sql, eq, or} from "drizzle-orm";
 
 
 const db = drizzle(process.env.DATABASE_URL!);
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
         const rowCount = await db.select({ count: count() }).from(members);
         rows = await db.select({id: members.id, firstName: members.firstName, lastName: members.lastName,
             email: members.email, role: members.role, workingName: members.workingName, socials: members.socials})
-            .from(members).where(eq(members.memberType, 'MEMBER'))
+            .from(members).where(or(eq(members.memberType, 'SUPER_ADMIN'),eq(members.memberType, 'GROUP_ADMIN')))
             .orderBy(asc(members.lastLoginAt)).limit(pageSize).offset(offset);
 
 

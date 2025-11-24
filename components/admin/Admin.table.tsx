@@ -16,7 +16,7 @@ import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMe
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-type MembersTableProps = {
+type AdminTableProps = {
     firstName: string;
     lastName: string;
     email: string;
@@ -25,7 +25,7 @@ type MembersTableProps = {
     socials: string;
 };
 
-export const columns: ColumnDef<MembersTableProps>[] = [
+export const columns: ColumnDef<AdminTableProps>[] = [
     {
         accessorKey: "firstName",
         header: ({ column }) => (
@@ -93,7 +93,7 @@ export const columns: ColumnDef<MembersTableProps>[] = [
     },
 ];
 
-export default function MembersTable() {
+export default function AdminTable() {
     // ---- table state (drives the API) ----
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
@@ -102,7 +102,7 @@ export default function MembersTable() {
     const [pagination, setPagination] = React.useState({ pageIndex: 0, pageSize: 5 });
 
     // ---- server data & meta ----
-    const [data, setData] = React.useState<MembersTableProps[]>([]);
+    const [data, setData] = React.useState<AdminTableProps[]>([]);
     const [total, setTotal] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
     const [error, setError] = React.useState<string | null>(null);
@@ -135,11 +135,11 @@ export default function MembersTable() {
             setLoading(true);
             setError(null);
             try {
-                const res = await fetch(`/api/admin/users?${params.toString()}`, {
+                const res = await fetch(`/api/admin/admin?${params.toString()}`, {
                     signal: controller.signal,
                 });
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const json: { rows: MembersTableProps[]; rowCount: number; pageCount : number; pageSize: number; } = await res.json();
+                const json: { rows: AdminTableProps[]; rowCount: number; pageCount : number; pageSize: number; } = await res.json();
                 setData(json.rows);
                 setTotal(json.rowCount);
             } catch (err: any) {
